@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
+The r/cscareerquestions subreddit is an online community for people to ask questions related to their cs career, share their experiences, and post news. This classifier labels posts from the subreddit with the labels: question, story, vent.  
 
 ---
 
@@ -54,35 +54,31 @@
      The decision rule is worth a point on its own and it's the thing most
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
-### `label_one`
+### Question
 
-**Definition:**
+**Definition: The author explicitly asks readers for information, advice, or opinions.** 
 
-**Example 1:**
+**Example 1: Stupid part: couple of my engineer teammates do not have as much experience/knowledge as myself or another senior member of the team. Yet, instead of trying to learn they waste both our time with 2hr discussions about database architecture and refuse to stick to factual discussions. Already raised with manager, yet to see any changes. Toxic part: The stupid bros challenge every other engineers ideas, but laugh between themselves when others challenge them (rightfully so as well since their decisions are very questionable) The problem: i want to be able to grow as an engineer and learn new things and ship fast. These two idiots are getting in my way and they’re not easy to work with either. How do i work with them/around them? Confront manager/ignore them/both?**
 >
 
-**Example 2:**
+**Example 2: For two years, I've been developing and maintaining an internal tool for the company I work for by myself. This software was created internally mostly because our company's requirements are very complex that there aren't many saas solutions out there that fulfill them. There is also a large amount of tech debt because leadership didn't want to hire more engineers. Fortunately, I've already put in my two weeks after receiving another job offer so I'm done with it. However, my colleague is trying to replace all of our internal and Saas systems with an AI app builder service. Leadership has already given him the green light and he is adding all of our API/EDI integrations. I'm not very familiar with the pros and cons of using a service like this one and I've already warned him about the possible risks of fully depending on this tool without having an experienced engineer. Some of these integrations are also requirements from our biggest customers and our operations team depend on these automations to reduce their heavy workload. I'm curious to know what others who have been in a similar scenario think about this. It won't be my problem in 2 weeks but I do wonder about the outcome of this approach down the road. My colleague is an IT manager and only IT employee in this mid-sized non-tech company but has almost no programming experience**
 >
 
-### `label_two`
+### Vent
 
-**Definition:**
+**Definition: The author expresses frustration about their own experience without asking readers for anything.**
 
-**Example 1:**
+**Example 1: I’m planning my exit from software now. My company has nobody at the helm anymore. The CEO and execs have fully drank the AI Kool-Aid, and AI is running our company now, not humans. I found some company documents made visible to all users on our shared repositories which I don’t think they intended to be visible to everyone. Those docs illustrated just how much they were using AI day to day: literally everything. The direction of the company, evaluating competitors, accounting, product planning, marketing, projections, reviewing customer feedback, and of course what I already knew about: software development. They are just taking customers’ conversations and data and feeding it directly into AI. They think that because it’s a “business AI” account that the data is still private. They think they are geniuses for building new products in record time by letting Claude and ChatGPT do all the work with swarms of agents, thinking “nobody else is doing this, nobody else is moving at speeds we are, nobody thought of this” Meanwhile literally everyone is doing the same thing, and they are feeding their entire product into AI, so anybody working at Anthropic or OpenAI or Google who is analyzing their output can easily sell that data to a competitor. The execs are building apps and web pages in single prompts in minutes, and thinking that their IQ just increased by 100% and added 2 inches to their dick. Then they turn to the engineers and say “look what I made, impressive huh” I won’t be able to wean them off their addiction. Sometimes you just gotta let them hit rock bottom**
 >
 
-**Example 2:**
+**Example 2: Recruiter said I did well and they enjoyed talking to me & encouraged me to apply to other positions but the team felt the role wasnt their best match, went through 9 rounds of this what does this mean Edit: this was my one golden ticket n its gone. Theres no point**
 >
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels: vent vs question**
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
-
+**The decision rule I used every time: If the author asks the readers for advice, information, or others' experiences, it's a question even with all the complaining. If the questions are only rhetorical ("what's the point of all this?"/"why does my life suck?"/"What now?"), it's vent**
 
 ---
 
@@ -111,25 +107,27 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
+> *The post: "Is there a future in computer science? I have the typical story of a young graduate who can't find a job. I've sent hundreds of résumés, and very few interviews have come my way. Now, it's been almost a year since I started searching, and I'm wondering if I should switch careers simply because I'm concerned that this won't be a reliable job in the near future. First of all, there are tons of developers on the market today, and most are better than I am, either because they already have work experience or because they're super passionate about coding (which, to be clear, I'm not. I have more of a mild interest in it). But on top of that, there's AI. Two or three years ago, ChatGPT had just been released. At the time, it was just a tool for drafting documents, and mistakes were common. Today, it's capable of producing code in mere minutes that could take a low-level engineer days to write. How can I be sure that, in another two or three years, it won't be just as good as an experienced developer? What about in 10 years? Heck, what if the job disappears completely? Imagine you own a hairdressing salon and want your own website. It's probably possible today to build one yourself with minimal programming knowledge. Well, maybe big systems in 10–15 years will barely need one or two workers to supervise them. Of course, I can imagine that AI won't be good at working with very niche technologies, or that regulations will significantly slow down AI implementation in the workplace (think COBOL and banking systems). But that's probably a minority of developers' jobs, and today, I'm asking myself: should I continue? I don't want to spend another six months searching for a job, only for my career to end in five years. But at the same time, I spent five years studying for this. Of course, maybe we'll get ""lucky"" and the bubble will burst or something, and AI progress will slow down significantly. But do I really want to bet my future on a coin flip? Sorry if this sounds like I'm doomsaying, but I need to get this off my chest somehow while also thinking seriously about my future. So please tell me: does a career as a developer have a future? Are we cooked?"*
 >
-> *Could have been:*
+> *Could have been: vent*
 >
-> *I chose, because:*
+> *I chose, because: I chose question because at the end of the post, the author asks for advice from the readers on whether the developer career has a future.*
 
 **2.**
-> *The post:*
+> *The post: "I actually tried to dodge AI for most of my degree, I just make games. I'm not some coding whiz, I knew what I needed to know for exams and kept it moving to the next class. But I try to make projects I enjoy, that's really all I got. Not even leetcode. No undergrad research. It really seems like AI is miles better than me. People around me in school seem to tell me: ""they'll always need someone to verify it"" , ""the funding will dry up"" , ""they need someone to fix the slop"", ""energy can't meet the demand"" But idk, it seems like we are really going full steam ahead. So many people already saying the job has shifted from problem solving to code review just as a mainstay. People saying ""oh it can't design complex systems"" , okay since when do Juniors do that? It feels like that's just expected now. Would it be right to assume that even if the AI train slows down, the expectation of a Junior has gone way up for good and essentially cooks all non high performers? For someone mid like myself - should I show myself out?"*
 >
-> *Could have been:*
+> *Could have been: vent*
 >
-> *I chose, because:*
+> *I chose, because: I chose question because although there is quite a bit of complaining, the author asks some specific questions, such as what juniors are expected to know and the author wants to know what's true about the expectations.*
 
 **3.**
-> *The post:*
+> *The post: Female developer’s list of annoyances
+
+I recently started a big project with lots of people and need to vent a bit. Feel free to share or vent if you have any annoyances too. Here’s my list. People just assume I’m a business analyst. Someone introduces the members of the development team, and I have to awkwardly shout from the side that I’m part of it too to get introduced. People automatically assume I’m on the front-end team and “better with colours.” I automatically get more front-end tasks than my male counterparts and have to call it out. I’m involved in small email chains, provide the correct information or solve the issue, and then someone declares, “We need someone from the development team.” I have to awkwardly call people out for sending me emails that repeatedly refer to me by the other female developer’s name. People refer to my manager’s team or talk about my manager as if I don’t know them or him, but that’s my team!! And I have to listen to my manager correct the big boss on which female developer is which. My team itself is fine, but everyone else in the company either doesn’t think I exist or thinks I’m Mary/Julia/Sophie/that girl the business analyst/some merged-together estrogen Java unit with the other female developer??? It just doesn’t seem to be getting better, even though I’ve been at the company for a while now. I have a simple name, but everyone gets it wrong all the time. What’s going on, lol?*
 >
-> *Could have been:*
+> *Could have been: question*
 >
-> *I chose, because:*
+> *I chose, because: I chose vent because the questions in the post are rhetorical or sarcastic in nature, not genuine questions seeking advice.*
 
 ---
 
