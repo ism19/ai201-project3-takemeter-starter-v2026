@@ -135,15 +135,33 @@ I recently started a big project with lots of people and need to vent a bit. Fee
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** distilbert-base-uncased
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
+3 epochs, learning rate 2e-5, batch size 16, seed 42, max length 128 tokens.
+Trained on an Apple Silicon GPU (MPS), torch 2.14.1; training took about 14
+seconds.
+
+| Epoch | Training loss | Validation loss | Val accuracy | Val macro F1 |
+|---|---|---|---|---|
+| 1 | — | 0.650 | 0.677 | 0.609 |
+| 2 | 0.682 | 0.606 | 0.806 | 0.805 |
+| 3 | 0.612 | 0.576 | 0.806 | 0.801 |
 
 **Anything I changed from the defaults, and why:**
 
 **Split sizes:** <!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
+
+| | Train | Val | Test |
+|---|---|---|---|
+| vent | 65 | 14 | 14 |
+| question | 74 | 17 | 16 |
+| **Total** | 139 | 31 | 30 |
+
+Both labels have more than 8 posts in the test split, but only just over 14,
+so a single misclassified post moves a label's F1 by several points.
 
 
 
@@ -160,15 +178,15 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I asked help for my label definitions for "vent" and "question".
+- *What came back:* It gave me rigid definitions with hard rules for overlap. 
+- *What I changed:* I realized that there can be significant overlap when considering which label it should be. So I wrote that vent posts can have questions too, but they would be rhetorical or sarcastic.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* I AI to format my posts for my csv file
+- *What came back:* It gave me paragraphs with removed "\n"s, but the quotes in the paragraphs were still there and messing with the csv values. 
+- *What I changed:* So I asked it to replace double quotes with quadruple quotes.
 
 **Pre-labelling disclosure:**
 
