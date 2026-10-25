@@ -228,29 +228,41 @@ The baseline model is actually slightly better than the trained model because it
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.75 | 0.867 | 0.633 | 0.867 | Miss (seed 7) |
+| 2. F1 for each label | ≥ 0.70 each | vent 0.833 · question 0.889 | vent 0.353 · question 0.744 | vent 0.846 · question 0.882 | Miss (seed 7 vent) |
+| 3. No label > 65% of predictions | ≤ 65% | 67% question | 90% question | 60% question | Miss (seeds 42, 7) |
+| 4. Confidence gap (most-sure − least-sure third) | ≥ 0.10 | 0.900 − 0.800 = 0.10 | 0.900 − 0.300 = 0.60 | 1.000 − 0.800 = 0.20 | Hit |
+| 5. Agreement with staff labels | ≥ 70% | — | — | — | - |
+
+**Spread across seeds** (section 6):
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.867 | 0.633 | 0.867 | 0.233 |
+| Macro F1 | 0.861 | 0.549 | 0.864 | 0.316 |
+| F1 — `vent` | 0.833 | 0.353 | 0.846 | 0.493 |
+| F1 — `question` | 0.889 | 0.744 | 0.882 | 0.145 |
+
+Accuracy moved 0.233 across seeds — more than 10 points, so a single run of
+this model isn't a stable measure.
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
-|---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+Seed 42:
+
+| true \ predicted | vent | question |
+|---|---|---|
+| **vent** | 10 | 4 |
+| **question** | 0 | 16 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
-
-
+The biggest off-diagonal number is 4, 4 vent posts were mislabeled as question. The model made 0 mistakes for labeling questions as questions, so I think it sees any question and labels vent posts as questions. 
 
 ---
 
