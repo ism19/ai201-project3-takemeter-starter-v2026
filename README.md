@@ -232,7 +232,7 @@ The baseline model is actually slightly better than the trained model because it
 | 2. F1 for each label | ≥ 0.70 each | vent 0.833 · question 0.889 | vent 0.353 · question 0.744 | vent 0.846 · question 0.882 | Miss (seed 7 vent) |
 | 3. No label > 65% of predictions | ≤ 65% | 67% question | 90% question | 60% question | Miss (seeds 42, 7) |
 | 4. Confidence gap (most-sure − least-sure third) | ≥ 0.10 | 0.900 − 0.800 = 0.10 | 0.900 − 0.300 = 0.60 | 1.000 − 0.800 = 0.20 | Hit |
-| 5. Agreement with staff labels | ≥ 70% | — | — | — | - |
+| 5. Agreement with staff labels | ≥ 70% | 28/30 = 93% | (not seed-dependent) | (not seed-dependent) | **Hit** |
 
 **Spread across seeds** (section 6):
 
@@ -302,7 +302,7 @@ The biggest off-diagonal number is 4, 4 vent posts were mislabeled as question. 
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 28 / 30 = 93%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -325,22 +325,44 @@ The biggest off-diagonal number is 4, 4 vent posts were mislabeled as question. 
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+> *The post:* "The club championship scoring changed in 2019 from top-6 to
+> top-10. Since then our B team has finished above the A team twice. That's not
+> depth improving, it's the scoring rewarding turnout."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* I think my reading holds up. Rule 1 asks whether the
+> checkable fact carries the argument. The date and the rule change are real
+> facts, but they only show that the B team started beating the A team. The
+> actual claim, that the scoring "rewards turnout", is never supported: there
+> are no turnout numbers, and the other explanation ("not depth improving") is
+> dismissed, not argued against. The facts set the scene, and the conclusion is
+> asserted, which is what the `hot_take` definition describes: "It isn't
+> argued."
 >
-> *Which pile:*
+> *Which pile:* (c) The rule is ambiguous here, because it doesn't say whether
+> the fact has to support the *final* conclusion or just part of the
+> argument, and my reading is defensible.
 
 **2.**
-> *The post:*
+> *The post:* "Three of us ran the same session on the same day, different
+> shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do
+> nothing, but whatever they do was smaller than the noise between three
+> people."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* `analysis` / `reaction`
 >
-> *My call, and why:*
+> *My call, and why:* The definitions don't say what counts as a checkable
+> fact. "Three runners, within 10 seconds" is checkable, but it's a sample of
+> three people on one day, and the staff's own note admits it's a "tiny
+> sample". Nothing in the rules says whether a fact that small can carry a
+> general claim about shoes. I labelled it `reaction` because it's about the
+> writer's own session, but looking back, Rule 3 says recency doesn't outrank
+> evidence, and the post has no feeling in it. If the sample is too small to
+> count, the better alternative is `hot_take`, not `reaction`.
 >
-> *Which pile:*
+> *Which pile:* (b) A gap in the definitions: they never say how strong a
+> fact has to be to count as load-bearing.
 
 **What the pattern in my disagreements tells me:**
 
