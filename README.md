@@ -204,20 +204,20 @@ so a single misclassified post moves a label's F1 by several points.
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.900 | 0.867 | -0.033 |
+| Macro F1 | 0.899 | 0.861 | -0.038 |
+| F1 — `question` | 0.909 | 0.889 | -0.020 |
+| F1 — `vent` | 0.889 | 0.833 | -0.056 |
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+I expected the trained numbers to be higher than the baseline numbers, especially the F1 for "vent" because the trained model should be able to identify vent posts better after seeing many vent posts that have rhetorical or sarcastic questions in them. 
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
+The baseline model is actually slightly better than the trained model because it got 27/30 labels right while the trained model got 26/30 labels right. Specifically for the vent label, the trained model got 4 posts incorrectly labeled as question, and 0 question posts were called vent. The trained model isn't good at labeling vent posts when there are questions in it.
 
 ---
 

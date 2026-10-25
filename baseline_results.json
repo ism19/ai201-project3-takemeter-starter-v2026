@@ -1,0 +1,178 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.9,
+    "f1_macro": 0.898989898989899,
+    "per_label": {
+      "question": {
+        "precision": 0.8823529411764706,
+        "recall": 0.9375,
+        "f1": 0.9090909090909091,
+        "support": 16
+      },
+      "vent": {
+        "precision": 0.9230769230769231,
+        "recall": 0.8571428571428571,
+        "f1": 0.888888888888889,
+        "support": 14
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Best Career / Job Hunt Coach Hey folks, I was laid off earlier this year and landed at a startup, which looks like it may go under mid next year. In the process of getting that job I went from getting laid off to securing an offer in 6 weeks, but it involved a very stressful routine of grinding leetcode and doing back to back onsites for 10 hours a day. As a result, thinking about interview prep is insanely stressful. I'd really like to pay for a coach to help me secure the position I know I am qualified for. I've looked into Formation.dev, are there any others I should be looking at?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I'm still a student, and over the last three years, I've balanced my studies with a part-time job at a leading fintech company. I worked so hard that I was promoted to SDE II there, and I also took on personal and freelance projects. Now I want to switch jobs, and I've been applying for working-student positions for over two weeks. I expected my experience to give me an advantage over the competition, but I've been consistently ghosted or rejected. I haven't gotten a single interview. WTF is going on? Why would a 10-person startup reject my application? WTF? This is demotivating, ngl.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "I'm not really asking for myself anymore but just in general, is it typical these days to be completely unable to find ANY relevant employment to a Computer Science degree, regardless of how low paying it is? I'm genuinely impressed at how bad it seems to be. Maybe it's a resume issue. I don't know.",
+      "gold": "question",
+      "predicted": "vent"
+    },
+    {
+      "text": "I'm a new grad who recently got laid off due to COVID, and wow, is the junior/new grad market brutal. I thought I had a pretty good resume and experience for junior positions: a CS degree with honors from a good state school, two long-term internships, and the past eight months working as a full-time developer while finishing school. But I've applied to around 150 jobs with no interviews yet and multiple rejections. It's so disheartening, and it's difficult to stay motivated sitting at home all day working on stupid little project apps for my resume when I spent the past two years shipping code. It's also fascinating that while I was employed as a developer, I'd get weekly messages from recruiters on LinkedIn, but now that I don't have a job, it's crickets. Maybe I just needed to vent. Stay strong, y'all. Edit: Thank you for all the helpful replies on this; I really appreciate them, especially after this post got off to a rocky start, haha.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "I honestly didn't even try. I had a computer science degree... I barely applied for like 50 jobs a month before graduating and only got 1 interview, then after graduating probably like 10 max. I kept reading online how it's useless now so I just became incredibly depressed and stopped applying 1 month after graduating. I felt so discouraged, applying to jobs always gave me anxiety, and my mom kept nagging at me telling me I should have done nursing.Just been holed up in my room since hardly even leaving the house and just doom scrolling tiktok and ocasionally meeting up with random men off grindr. I feel like my resume is basically crap now.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "Switching from web to embedded/hardware: is it the right move ? Hello everyone I'm 26 have 3 years of experience in web development. I want to leave to embbeded systems/hardware and accepted an offer at my local university UHCL for a fully funded masters in computer engineering with foundation courses. https://catalog.uhcl.edu/preview_program.php?catoid=25&poid=7072 I decided to switch because of the following reasons: 1. I wanted to work with my hands a bit and still code, I wanted to work with real hardware not just sit behind a monitor all day 2. I thought the idea of bringing hardware to life is amazing 3. I wanted a job more stable and slower paced where what you learned lasted longer 4. I think it's more AI proof even though nothing is completely AI proof. Do you guys think it's the right move ? Anyone with embedded experience? Or hardware experience?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "This is just a vent or rant, I don't know, but basically, I got hired at this new company as a backend developer, and I was excited about my first remote job. The company is building its project, and I'm the only backend developer, responsible for the whole server. I like a challenge, so I went to work. Two months in, I realized there was no proper documentation system other than Google Docs, so I suggested integrating Swagger into the backend (I had to ask, since people are apparently very strict about tickets). The manager said yes, but maybe in the future (which, as I learned, means no). Three months in, my probation ended, and I asked the manager about the raise in my contract. He told me HR was making new policies, and once that was done, we'd see. By this time, I was also realizing the project was heading in a very messy direction, since the manager just wanted tickets finished and story points completed. I told the manager it wasn't right and that we really should rework it. He said there was no need, and since I couldn't do much more than argue, I went back to tickets. Seven months in, the manager brought in a fresh new design and presented it as some kind of favor to me. It turned out there was no rework; it was just another Figma design with even vaguer requirements. I got annoyed, so I told someone on the upper team. The manager said to start working on the backend according to the new design and that it's okay to have your code scrapped, completely normal (he didn't mention why the code was being scrapped, which was misunderstood requirements). The next day, he told the team to stop working on the project and wait for instructions from higher up: \"\"There's nothing wrong with the project; it's just being reworked according to some new requirements.\"\" Today, the manager said the old project is okay, but we now have to make a version 2 of it from scratch, though the old project is completely fine and we can reuse things from it. I told him that just means the old project was wrong, and he said that, as he'd said, it's completely fine; we'll just be making improvements. Anyway, that's what happened today, so I was really annoyed and needed to let it out.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "My boss called me in for a 1-on-1. I'd already had an eerie feeling for the past two weeks, since I was being assigned lame tickets and no actual project work. We sat facing each other, and then she said the magic words: \"\"We are cutting our costs.\"\" She kept explaining how and why it was happening, but I had clocked out. I don't blame her or the company; it's a business, after all. Although I had mildly anticipated it, I kept zoning in and out, doing the math and trying to calculate how long until I run out of money for survival expenses. It had only been a year since I graduated and started working as a junior SWE. I have about five weeks to land something, and it makes me sad that my journey here might come to a halt given the economic climate. Being on a visa makes this pill even more bitter to swallow. It was only my first year of OPT, which makes me wonder whether the path to my aspirations might hit a dead end. I wish I had been more rigorous and proactive about exploring other opportunities instead of LeetCoding like a monkey. I'm feeling a little numb today, but I'll grind and apply while hoping for the best. Sorry for the sappy post. I wasn't sure how to break the news to friends, family, or anyone, so I thought I'd vent to you guys. Thanks for taking the time to read, if you made it this far. :')",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "Got placed at a product-based company as an Associate Full stack Developer from a crap college at the start of this year. Did my internship until August. Had a probation period which was supposed to end in November. Out of nowhere I get a MS Teams meeting invitation \"regarding my employment\". Joined the meeting and they let 17 of us know that our roles are redundant because of AI and we are no longer needed. I literally was working on my probation report which I was supposed to submit on the 23rd and now they let me know they no longer needed me. I'm upset, demotivated and frustrated that stuff like this happens out of the blue. Not a single hint that I was going to get sacked but here I am now. Thankfully I saved up most of my money so it will keep me afloat for a while. Looking for another job in this economy is looking like hell. I guess I'll take some time off and brush up DSA again and attempt at another job. It's a shame because the workplace was really close by and the pay was decent too. Edit: There were around 100 employees. Nvm this company is doomed",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "Three internships, three projects (I'm currently working on one), student dev orgs, a BS in CS, and valuable tech stacks. I've revamped my resume a million times and tried every method to get my experience noticed: sending in tons of applications, building my network, tailoring my resume to job descriptions, doing mock interviews, applying within hours of jobs being posted, and reaching out to recruiters and hiring managers. I don't know; it's been over a year, so I've definitely tried whatever the \"meta\" advice from LinkedIn and Reddit was, yet it all feels useless right now. It makes me wonder if my school's ranking has been what's holding me back. I know other people are going through very similar things, but when someone vents about their struggles on this subreddit, it's experienced devs already in the industry regurgitating LinkedIn advice that many of us have tried with no results. In fact, they start assuming things about the poster and calling them a doomer when all they want is to be heard. I do agree that some posts are outlandish and the poster has a poorly written resume or something, but many of us just want encouragement to keep going, or advice and reality checks about the current market that will actually help us figure out our next steps. I scroll this subreddit every day looking for encouragement or good advice, but a lot of it just puts down hardworking, smart people who are looking for an opportunity for supposedly not being hardworking or smart enough. I don't know; the longer I keep going with no results, the more helpless I feel. At the very least, I want to build or find a community where we can support each other through these tough times. That said, I understand that many devs already in the industry are annoyed by helpless and doomer posts, so I won't flood this subreddit with that stuff after this post. But if you're struggling like me and reading this, you are not alone, and I hope you take care of your mental health first. Thanks.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "is the market cooked or is it flooded with mid people 28YO with 7 years of experience as a data eng. just got out of a recruiter screening for a wealth management fund, the recruiter had a genuine crash out and asked point blank : \"Just to make sure and avoid any further embarassment, you know SQL right ? because there's an epidemic of data engineers that DO NOT know SQL which sounds crazy to me.\" I was flabbergasted and while i definitely feel the market is tougher now i cant help but think that there's just a flood of people like these and the issue is less the amount of job openings but rather standing out and making HR feel like you're not gonna embarass them further down the process. Im guessing Tech Recruiters get rated and evaluated on the amount of successful hires/people that go to the end of the process so they are all the more incentivized to be cautious and prioritize resumes that will reassure them.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Will the market get better with new PERM rules? Yeah, I know that international workers in the US are not the cause of bad market, but I am curious as to what you guys think. Will it get better for domestic cs grads or no? I personally doubt it because of the offshoring, and I think that until there is a tax/penalty for offshoring, it won\u2019t get better. Please share your thoughts!!!",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Am I the only one with this problem? It just annoys the fuck out of me that some stupid web framework requires word-by-word knowledge of their (mostly bad) docs to use them. I love programming when I can solve algorithmic problems, but as soon as I have to use random frameworks to do stuff (mostly web in my current job), I start to hate programming, because at this point, all you do is try to figure out what the people behind the framework were thinking when they wrote their spotty docs. Just let me write some algorithms, for fuck's sake. Let someone else integrate them into some stupid modern web hipster app.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "How exactly do \"on-call rotations\" generally work? 15 years as a developer and this has never been part of my previous jobs, but I've noticed it a few times now while submitting applications. I'm looking at backend senior/lead/architect roles specifically and I'll see things like \"participate in and help lead the on-call rotation\" listed among the job responsibilities. But it's hard for me to anticipate what that entails when I haven't done it before. EDIT: Great insights in here, thanks everyone. I definitely know what to investigate now, and I'm also more confident in my assumption that if off-hours calls are a frequent occurrence, it's not worth getting mixed up in it.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I often wonder how much I'll still design software and do security when I retire. Somedays I think I'll always keep it up. Some days I think I'll never look at it again when I'm done lol. For those venerable veterans who have retired, how much do you still code or do network stuff in a home lab or cyber sec work or system work or whatever in your now ample spare time?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I've been jobless for close to a year now, and interviews are few and far between. I just had my first silent month, meaning zero engagement from recruiters or my network. The last behavioral interview I had was almost amusing to me, because the gap is so large that I had no new projects or stories to share. Nowadays, my routine is workshopping my resume, applying to new roles, doing daily LeetCode, reading or watching some prep material, and receiving \"update on your application\" emails. My other news cycle is a reading loop of other vent threads, final-round interview experiences, new career and interview advice, and some form of AI news. I hardly have time to keep maintaining my projects, let alone a decent amount of time to build or learn something new. I know others also want to be seen and are going through something similar, and I feel for you, especially those of you with families and dependents. The good news is that I've been seeing more hiring announcements for interns and juniors. Reddit is also the only outlet I have for this post; it's pointless on LinkedIn and everywhere else.",
+      "gold": "vent",
+      "predicted": "question"
+    },
+    {
+      "text": "I recently started a new job as a Front End Engineer at one of the FAANGs (it's probably the one you're thinking of), and it's my first real developer job out of university. For the first few weeks, I was on a team with an already established product, where I helped make some changes and bug fixes, received a ton of help, learned a lot, and really enjoyed working with them. However, my time with that team was just meant to get me onboarded. The team I'll actually be working with, which I just joined, gave me as my first task setting up the entire infrastructure (including AWS front-end and back-end resources) for a brand-new product. There are no other FEEs on the team, and nobody else is working on this project right now except me. Needless to say, I don't have much experience doing stuff like this and was hoping for a lot more guidance and mentorship. I'm figuring it out and making progress, but there are so many things I fundamentally don't understand yet, especially the more complicated back-end details. I'm following other products as examples, but I could easily be making bad choices without realizing it, and it terrifies me that no one is helping. I'm a junior front-end developer doing what feels like mid- or senior-level back-end work. I'm not getting any real support, and my manager has been on vacation for more than half the time I've been on this team. I don't know how to navigate any of this. I'm more than happy to learn and grow as a developer, but I feel like I'm being set up for failure. Do you guys have any tips for managing this kind of situation? Do I just need to suck it up and find my way through, or are my concerns reasonable? I've only just started my career, so I don't know what's normal yet, and I really want to make the most of the opportunity to work for a big company like this. EDIT: Wow, thanks for all the responses, everyone. I just needed to vent for a second. I'm figuring things out and learning a lot, and I think it's worth sticking it out since the people on the team are all really great. I could very well be misunderstanding the team's expectations and putting more on myself than needed. Regardless, I'm happy for the opportunity to learn, and I'll try not to freak out, do my best, and ask for help when that's not enough. Thanks again for the responses!",
+      "gold": "vent",
+      "predicted": "question"
+    },
+    {
+      "text": "I've posted about this before, but I suppose I'll just rant about it again. I've had a couple of interviews, but I have my doubts they'll lead to an offer, and it really pisses me off. I've got a great GPA, a decent resume, and good letters of recommendation, but I've only had a couple of bites on my applications, and those have been bizarre encounters. The interviewers were clearly looking for someone with years of real-world software engineering experience, not an intern looking for entry-level work experience. One interviewer grilled me for 20 minutes on the ins and outs of Docker, security frameworks, and F#. My best friend is a senior dev at Epic, and he couldn't answer the questions I shared with him. And this has been consistent across my few other interviews, too. It's even more maddening when your classmates are dumb as doornails, have resumes that look like a child's adventure with crayons, and still have multiple internships under their belts. The more I think about it, the more pissed I get, and the more anxious I become, because I'm graduating in the fall and still can't get a goddamn internship for the summer.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "I am graduating in 6 months and my dad is pushing me to contact my boss from my internship about landing a job for when I graduate. It was at a good, well-known company, and my boss really liked me, so I feel like if there is a spot I have a good chance of landing it. I know the market is horrible but I want to take it easy right now. Maybe take a month off after I graduate or even take a year to get a second degree. Basically I have no clue what I want in life. If I take it easy for a little while how bad of a decision do you think I am making?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "If you\u2019ve had poor results with coding agents at work, what specifically did they get wrong? There\u2019s a lot of discussion here about AI\u2019s impact on CS careers. I\u2019d like to gather some concrete examples of where coding agents fell short on actual work. What was the task, which model did you use, and how did it fail? Looking back, could different context or guidance have helped, or did fixing its output take more work than doing it yourself?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I'm about 8 weeks into a 12-week summer internship here in Texas, and I haven't done or learned as much as I'd hoped. The company is small, and the full-time employees work remotely in a different city. They come into town once a week or so to work with the interns, but most days it's just the interns in the office, with a daily video stand-up. After that, it's just Slack and the occasional call and screen-share to work something out. The full-timers are nice and really patient with me, but I just don't see much of them. The company is building out its framework right now, so requirements and expectations are constantly changing, which I feel hasn't been the best environment for me. I get really lost at times, and it can bring me to a dead stop where I have no idea what I'm supposed to be doing. I end up having to strategize with the full-timers over Slack, which... I don't know, I don't like it. I'd rather work things out in person and do pair programming; I feel like so much gets lost when you're just talking about something over Slack. Some days are great: I know my task through and through and have a good time working through it. But a lot of the time, I have no idea what I'm supposed to be doing and have to sit around trying to look busy. I feel like I was thrown into their somewhat obscure tech stack with minimal guidance. I've talked to the CEO about this several times and explained that I need some guidance and a chance to learn things (a tutorial or some training) so I can be more helpful, but their response was that they want interns doing actual work, not tutorials, and that if I need help learning something, I should just communicate with the full-timers. I'd be okay with that if they were around more often (they're actually very helpful when I get face time with them), but like I said, it's really hard for me to learn things from someone pinging me on Slack. The office is really quiet, which can get depressing at times; no one really talks, and there isn't much chemistry among the interns. I guess I just expected more mentorship and learning, and I didn't expect the office to be JUST interns 80% of the time. I feel like this company had no business hiring interns, since they don't have the infrastructure or organization to support them. At the same time, I feel guilty and upset with myself that I haven't done or learned as much as I wanted to. The days when I'm completely lost, no full-timers are in the office, and I'm stuck with the other interns are incredibly grueling and depressing. I just feel so restricted and anxious, and I'm not sure what I should do. I don't want my summer to be completely wasted, and I want to leave this job having gained something.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "is it possible to get a job in france from india as a swe/ML engineer if i know french? 2nd year compscience student in india here. grinding dsa and core cs daily. i will be doing java full stack then good projects in it then i will do ML and projects . i will have two resumes one for swe one for ML and one for both. is it possible to get a job in france if i have all of this and i know french at a good level. what would be the chances for me?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "There are only a handful of opportunities. In a month, I'd be lucky to find 100 jobs to apply to, and those rare openings get hundreds, sometimes thousands, of applicants for literally two positions at a given company. With that many applicants, the chances that someone has just a little more Java experience for a Java role, or remembered a slightly better solution than the one you came up with for a coding problem, are really high. In some cases, it only takes 2 marginally better applicants out of 3,000 for you to miss out on the job. I wish someone had told me before I graduated about the hell I'd go through just to work somewhere. This is just absurd...",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "Has anyone done an East to West coast move? I\u2019m in Boston and I\u2019m looking to, well, earn more money. Career advancement is important to me and I want to live somewhere where I can do that fast and more easily. The tech scene here is alright, but I wonder if West Coast cities like SF or Seattle would just be better for me. Seattle is appealing because of no state income tax. I also like the geography and the nature. Has anybody done a move like this?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "What are signs that SWE might not be for you? What are some good signs that SWE is not the right job for you? I enjoy coding when I\u2019m doing things that interest me (ie making a game) but at work, I do CRUD applications and websites. I love designing the websites and learning about UX principles and web accessibility. However, I don\u2019t enjoy CRUD applications. Databases bore me, backend bores me, if I get stuck I can\u2019t focus and I get distracted from my work. I feel ungrateful for sitting here and not enjoying what I\u2019m doing when the market is rough for others. Does it sound like SWE isn\u2019t for me? Should I pivot into a different niche of computer science? What are some other signs that I am not meant to be a software engineer?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Feel lost: I don't what to do should I continue in journey to embbeded systems or go into something else? Hello everyone I'm 26 I currently have 3 years of experience in web development. I'm doing my masters in computer engineering I have a scholarship and I like hardware but I'm afraid I'm too dumb for fields like embbeded systems. The work is interesting but some people in embedded seem like the bugs are miserable. I don't necessarily want an easy or boring job I actually wanted a more hands on job I left web development for 2 main reasons I got tired of just coding all day without doing anything with my hands and I also got exhausted of how fast paced web dev is. Is there any jobs in computers that are a bit slower ? I heard embbeded is one. I've also looked into networking don't know if that's worth. I really like teaching to be honest, however I don't know if it's worth to go that route since pay is rough. Is there any jobs in Hardware that you don't code that much? I don't know I just feel lost. I like coding but I also want to do more than just code all day.",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Do people trust these sites? Do people actually use websites like thelayoff/workhush/blind/etc as fact? It\u2019s been interesting to follow my companies traffic on there and it makes me a little sad to see. Is it just all the Debbie downers who use those? Or have people actually found credible information on there? Trying not to scare myself as I browse some of them\ud83d\ude11",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "I've been at my job for a year (my first job out of college), and I feel like I haven't learned anything. I'm not even sure how I'm expected to do the work I'm assigned. I never got any training, and I don't even know what I don't know. I don't want to be a software engineer anymore, but the job market is so bad that I'm not sure what else I'd do. I don't even know whether it's because I'm just not good at development or whether I should try being a developer at a different company. I'm constantly asking for help, but I feel like my coworkers probably think I'm dumb. I just don't know what to do anymore, so I'm posting here to vent more than anything else.",
+      "gold": "vent",
+      "predicted": "vent"
+    },
+    {
+      "text": "This is just something I\u2019ve been curious about. I\u2019ve been seriously considering moving to another country for a number of personal reasons (basically for my partner) Where I want to be is on the same time zone as my company and everything. My job was fully remote from the start. I\u2019ve been approved to work from this country for 2 months, but not full time. I\u2019m always a bit afraid to ask anything related to it I was wondering, has anyone here been successful in doing so, and what advice would you have?",
+      "gold": "question",
+      "predicted": "question"
+    },
+    {
+      "text": "Haven't touched LeetCode in ages. How can I make the most of these 7 days and actually improve my problem-solving skills instead of just memorizing solutions?",
+      "gold": "question",
+      "predicted": "question"
+    }
+  ]
+}
