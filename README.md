@@ -415,24 +415,67 @@ third" isn't actually very confident, so this pass doesn't mean much.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** A training setting: I changed EPOCHS from 3 to 10.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** Criteria 1–3 all missed for the same
+reason, the model was undertrained. After 3 epochs the training loss was
+0.61–0.64, which is barely below the 0.693 you get from guessing. Every prediction had a confidence between 0.43 and 0.71, and the uncertain model fell back on the majority label, `question`. My agreement report (93%) and rereading the 18 misclassified vents ruled out labelling as the main cause, so the fix was training.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.75 | 0.867 | 0.867 | 0.967 | MET |
+| 2. F1 for each label | ≥ 0.70 each | vent 0.846 · question 0.882 | vent 0.846 · question 0.882 | vent 0.966 · question 0.968 | MET |
+| 3. No label > 65% of predictions | ≤ 65% | 60% question | 60% question | 50% question | MET |
+| 4. Confidence gap (most-sure − least-sure third) | ≥ 0.10 | 1.000 − 0.600 = 0.40 | 1.000 − 0.700 = 0.30 | 1.000 − 0.900 = 0.10 | MET |
+| 5. Agreement with staff labels | ≥ 70% | 28/30 = 93% | (not seed-dependent) | (not seed-dependent) | MET |
+
+**Spread across seeds, after** (section 6):
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.867 | 0.867 | 0.967 | 0.100 |
+| Macro F1 | 0.864 | 0.864 | 0.967 | 0.102 |
+| F1 — `vent` | 0.846 | 0.846 | 0.966 | 0.119 |
+| F1 — `question` | 0.882 | 0.882 | 0.968 | 0.085 |
+
+**Confusion matrix, after (seed 42):**
+
+| true \ predicted | vent | question |
+|---|---|---|
+| **vent** | 11 | 3 |
+| **question** | 1 | 15 |
 
 **Did it help, and how do I know:**
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+Yes. All three criteria I missed are now met, on all three seeds.
+
+| | Before (3 epochs) | After (10 epochs) |
+|---|---|---|
+| Accuracy, seeds 42 / 7 / 2024 | 0.867 / 0.633 / 0.867 | 0.867 / 0.867 / 0.967 |
+| Spread in accuracy | 0.233 | 0.100 |
+| Real vents called `question` (all seeds) | 18 | 6 |
+| Share of `question` guesses, worst seed | 90% (seed 7) | 60% |
+| Average confidence when right, seeds 42 / 7 / 2024 | 0.59 / 0.61 / 0.55 | 0.96 / 0.94 / 0.90 |
+
+The biggest change is that seed 7 stopped collapsing: it went from calling 11
+of 14 vents `question` to 3 of 14. The model is also confident now. Before,
+every prediction was between 0.43 and 0.71; now correct predictions average
+0.90–0.96. That's what I'd expect if the problem really was undertraining, so
+it supports the diagnosis.
+
+Some limits on how far this goes:
+
+- **Seed 42 didn't improve overall.** Accuracy is 0.867 both before and after.
+  The errors are spread more evenly (3 one way, 1 the other, compared with
+  4 and 0), but it's the same number of mistakes.
+- **It still doesn't beat the baseline on seed 42.** The zero-shot baseline
+  scored 0.900 on the same 30 posts, and my trained model still scores 0.867.
+- **The lean towards `question` is smaller but still there**: 3 vents called
+  `question` vs 1 question called `vent` on seed 42.
+- **Criterion 4 only just passes on seed 2024** (a gap of exactly 0.10), and
+  the spread is still 10 points, so a single run still can't be fully trusted.
 
 
 
