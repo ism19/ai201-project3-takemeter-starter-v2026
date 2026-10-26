@@ -228,11 +228,11 @@ The baseline model is actually slightly better than the trained model because it
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1. Overall accuracy | ≥ 0.75 | 0.867 | 0.633 | 0.867 | Miss (seed 7) |
-| 2. F1 for each label | ≥ 0.70 each | vent 0.833 · question 0.889 | vent 0.353 · question 0.744 | vent 0.846 · question 0.882 | Miss (seed 7 vent) |
-| 3. No label > 65% of predictions | ≤ 65% | 67% question | 90% question | 60% question | Miss (seeds 42, 7) |
-| 4. Confidence gap (most-sure − least-sure third) | ≥ 0.10 | 0.900 − 0.800 = 0.10 | 0.900 − 0.300 = 0.60 | 1.000 − 0.800 = 0.20 | Hit |
-| 5. Agreement with staff labels | ≥ 70% | 28/30 = 93% | (not seed-dependent) | (not seed-dependent) | **Hit** |
+| 1. Overall accuracy | ≥ 0.75 | 0.867 | 0.633 | 0.867 | **MISSED** |
+| 2. F1 for each label | ≥ 0.70 each | vent 0.833 · question 0.889 | vent 0.353 · question 0.744 | vent 0.846 · question 0.882 | **MISSED** |
+| 3. No label > 65% of predictions | ≤ 65% | 67% question | 90% question | 60% question | **MISSED** |
+| 4. Confidence gap (most-sure − least-sure third) | ≥ 0.10 | 0.900 − 0.800 = 0.10 | 0.900 − 0.300 = 0.60 | 1.000 − 0.800 = 0.20 | **MET** |
+| 5. Agreement with staff labels | ≥ 70% | 28/30 = 93% | (not seed-dependent) | (not seed-dependent) | **MET** |
 
 **Spread across seeds** (section 6):
 
@@ -273,11 +273,11 @@ The biggest off-diagonal number is 4, 4 vent posts were mislabeled as question. 
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.75 on all three seeds | MISSED | 0.867 and 0.867 pass, but seed 7 scored 0.633. The target has to hold on every seed. |
+| 2 | F1 for each label | ≥ 0.70 for both labels, on all three seeds | MISSED | `question` passed on every seed (0.889 / 0.744 / 0.882), but `vent` scored 0.353 on seed 7. |
+| 3 | No label > 65% of predictions | ≤ 65% on all three seeds | MISSED | The model guessed `question` 67% of the time on seed 42 and 90% on seed 7. Only seed 2024 (60%) passed. |
+| 4 | Confidence gap | Most-sure third ≥ 0.10 more accurate than least-sure third, all seeds | MET | 0.10 / 0.60 / 0.20. Seed 42 is exactly on the line, a gap of one post, so this is the narrowest possible pass. |
+| 5 | Agreement with staff labels | ≥ 70% | MET | 28/30 = 93%. |
 
 **Diagnoses**
 
@@ -289,6 +289,49 @@ The biggest off-diagonal number is 4, 4 vent posts were mislabeled as question. 
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+
+**Criteria 1, 2 and 3 have one cause: the model is undertrained, it's not a problem with the labeling **
+
+All three misses come from the same behavior: the model calls vents
+`question`. Across the three seeds, 18 real vents were called `question` and
+only 1 real question was called `vent`. Seed 7 is the extreme case: 11 of its
+14 vents were called `question`, which is what made accuracy 0.633,
+`vent` F1 0.353, and the share of `question` guesses 90%.
+
+How I know it's undertraining:
+
+- **The model barely learned.** With two labels, pure guessing gives a
+  training loss of 0.693. My training loss only fell from 0.68 to 0.61–0.64
+  over 3 epochs (27 training steps on 139 posts).
+- **It's never confident.** On every seed, every prediction had a confidence
+  between 0.43 and 0.71. It isn't separating the two labels so much as
+  nudging them slightly apart.
+- **The errors go towards the majority label.** `question` is 53.5% of my
+  data. On seed 7 the model's average P(question) was 0.59, so nearly every
+  vent landed just over the 0.5 line. A model this unsure falls back on the
+  more common label.
+- **My first guess was wrong.** I expected rhetorical question marks to cause
+  it, but 9 of the 18 misclassified vents contain no "?" at all. The errors
+  don't follow a feature of the posts, which also points at the model, not
+  the boundary.
+
+How I know it's mostly not my labelling:
+
+- **The agreement report:** I matched the staff labels on 28 of 30 posts
+  (93%). When I apply a written rule, I apply it consistently, so I don't
+  think my 200 labels are full of contradictions.
+- **I re-read all 18 misclassified vents.** About 3 of them arguably do ask
+  readers for something under my own rule. One ends "Hopefully some of you
+  ... can tell me how to handle this better", another "Any words of
+  encouragement would also be monumental". Those are boundary cases I may
+  have labelled loosely, but 3 of 18 can't explain the other 15.
+
+**What I'll fix:** train for more epochs, so the model gets past near-chance
+loss before it's tested.
+
+**Criterion 4 met, but barely.** On seed 42 the gap is exactly 0.10, one post.
+Because every prediction sits between 0.43 and 0.71, the "most-confident
+third" isn't actually very confident, so this pass doesn't mean much.
 
 
 
