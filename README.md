@@ -188,7 +188,22 @@ so a single misclassified post moves a label's F1 by several points.
 - *What came back:* It gave me paragraphs with removed "\n"s, but the quotes in the paragraphs were still there and messing with the csv values. 
 - *What I changed:* So I asked it to replace double quotes with quadruple quotes.
 
-**Pre-labelling disclosure:**
+**Moment 3: finding the pattern in my errors (unit 6)**
+
+- *What I asked for:* help diagnosing why criteria 1–3 missed.
+- *What came back:* Claude retrained each seed and listed all 19
+  misclassified posts with their confidence scores. That showed 18 of the 19
+  errors were vents called `question`, that every prediction sat between 0.43
+  and 0.71 confidence, and that training loss had barely dropped below chance
+  (0.61–0.64 vs 0.693). It pointed to undertraining as the cause.
+- *What I changed:* my own first explanation, and Claude's earlier guess, was
+  that rhetorical question marks in vents were fooling the model. The error
+  list showed 9 of the 18 misclassified vents contain no "?" at all, so I
+  dropped that explanation and chose more epochs as my one fix, not
+  relabelling.
+
+**Pre-labelling disclosure:** None. I read and labelled all 200 posts in
+`labels.csv` myself (every row is marked `cold`). AI only helped format the CSV.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
@@ -485,12 +500,27 @@ Some limits on how far this goes:
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+**No criterion is still missed.** After the 10-epoch run, all five met on all three seeds. But two problems aren't covered by any criterion:
+
+- **The trained model still doesn't beat the zero-shot baseline.** On the seed 42 test split the baseline scored 0.900 and my model 0.867. *What I'd do:*
+  raise `MAX_LENGTH` from 128 to 512. The baseline reads up to 1024 tokens,
+  while my model only sees about the first 95 words, and in about 30 of my 107
+  `question` posts the ask comes after that point. *Why I stopped:* the
+  milestone allows one change, and my diagnosis pointed at epochs first.
+- **The lean towards `question` is smaller but still there.** On seed 42, 3 vents were called `question` and 1 question was called `vent`. *What I'd
+do:* 
+  re-check my vent/question boundary on the roughly 3 vents that
+  arguably ask readers for something ("can tell me how to handle this
+  better", "Any words of encouragement…"), apply my rule to them once, and
+  count how many rows change. *Why I stopped:* one change only, and the
+  agreement report said labelling wasn't the main cause.
 
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
 
+I meant `question` vs `vent` to depend on one thing, whether the author asks readers for something, which is often a single sentence at the end of a long post. The confusion matrix shows the model mostly learned something else: before the fix it called 18 vents `question` and only 1 question `vent`, which looks like a lean towards the majority label, not a reading of the ask, and even after the fix it still errs that way (3 vs 1), partly because it can't see an ask that falls past its 128-token cutoff.
 
 
 <!-- ═════════════════════════════════════════════════════════════════════
